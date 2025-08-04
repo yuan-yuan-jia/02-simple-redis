@@ -46,7 +46,7 @@ footer = """
 trim = true
 # postprocessors
 postprocessors = [
-    { pattern = '\$REPO', replace = "https://github.com/yuan-yuan-jia/01-cli" }, # replace repository URL
+    { pattern = '\$REPO', replace = "https://github.com/yuan-yuan-jia/02-concurrency" }, # replace repository URL
 ]
 
 [git]
