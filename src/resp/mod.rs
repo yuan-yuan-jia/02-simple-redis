@@ -14,7 +14,7 @@ pub trait RespEncode {
 
 pub trait RespDecode: Sized {
     const PREFIX: &'static str;
-    fn decode(buf: &mut BytesMut) -> Result<RespFrame, RespError>;
+    fn decode(buf: &mut BytesMut) -> Result<Self, RespError>;
     fn expect_length(buf: &[u8]) -> Result<usize, RespError>;
 }
 
@@ -38,7 +38,7 @@ pub enum RespError {
 }
 
 #[derive(Debug, PartialEq, PartialOrd)]
-#[enum_dispatch(RespEncode)]
+#[enum_dispatch(RespEncode, RespDecode)]
 pub enum RespFrame {
     SimpleString(SimpleString),
     Error(SimpleError),
